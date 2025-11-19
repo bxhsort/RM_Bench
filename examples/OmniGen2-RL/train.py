@@ -229,8 +229,9 @@ def disabled_adapters(model):
 
 
 def main(args):
+    ## Accelerate 创建一个文件夹来激励Wandb 这些日志文件
     accelerator_project_config = ProjectConfiguration(project_dir=args.output_dir, logging_dir=Path(args.output_dir, 'logs'))
-
+    ## ACC = ACC * RL_infer_step * 
     accelerator = Accelerator(
         gradient_accumulation_steps=args.train.gradient_accumulation_steps
         * math.ceil(
@@ -267,11 +268,12 @@ def main(args):
         return model
     
     ema_decay = args.train.get('ema_decay', 0)
-
+    ## args.model.arch_opt : model parameters
     if args.model.pretrained_model_path:
+        # create model
         with init_empty_weights():
             model = OmniGen2Transformer2DModel(**args.model.arch_opt)
-
+        # load model weights
         state_dict = torch.load(args.model.pretrained_model_path, mmap=True, weights_only=True)
         missing, unexpect = model.load_state_dict(state_dict, assign=True, strict=False)
     else:
@@ -292,7 +294,7 @@ def main(args):
 
     text_tokenizer = processor.tokenizer
     text_tokenizer.padding_side = "right"
-
+    # save tokenizer weights
     if accelerator.is_main_process:
         text_tokenizer.save_pretrained(os.path.join(args.output_dir, 'tokenizer'))
 
@@ -370,6 +372,7 @@ def main(args):
     )
 
     logger.info("***** Prepare dataset *****")
+    # notice Dataloader 
 
     with accelerator.main_process_first():
         train_dataset = OmniGen2TrainDataset(
