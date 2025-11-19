@@ -263,7 +263,7 @@ def main():
     parser.add_argument(
         "--config_path",
         type=str,
-        default="server_configs/editscore_7B.yml",
+        default="/mnt/Reward/EditScore/examples/OmniGen2-RL/reward_server/server_configs/editscore_7B.yml",
         help="Configuration file path",
     )
     # parser.add_argument("--port", type=int, default=23456, help="Proxy server port")

@@ -1,3 +1,18 @@
+# MUST be the very first non-comment code in the file
+import multiprocessing as mp
+try:
+    mp.set_start_method("spawn", force=True)
+except RuntimeError:
+    pass
+
+# 如果你使用 torch.multiprocessing，也可同时设置
+try:
+    import torch.multiprocessing as torch_mp
+    torch_mp.set_start_method("spawn", force=True)
+except Exception:
+    pass
+
+
 import dotenv
 
 dotenv.load_dotenv(override=True)

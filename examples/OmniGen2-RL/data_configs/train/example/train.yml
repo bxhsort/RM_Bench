@@ -1,5 +1,5 @@
 data:
   - 
-    path: 'data_configs/train/example/edit/all.yml'
+    path: '/mnt/3d/EditScore-RL-Data/rl_abs_9tasks.jsonl'
     type: 'edit'
     ratio: !!float 1
