@@ -122,7 +122,7 @@ def evaluate_images(input_images: List[bytes], output_image: List[bytes], meta_d
     """
     Convenience function: directly evaluate images
     """
-    client = RewardClient(proxy_host, proxy_port, timeout=600, max_retries=1)
+    client = RewardClient(proxy_host, proxy_port, timeout=1200, max_retries=1)
     return client.evaluate(input_images, output_image, meta_datas, server_type)
 
 # Usage example

@@ -4,4 +4,10 @@ examples/OmniGen2-RL/EditScore-RL-Data/
 examples/OmniGen2-RL/GEdit-Bench
 examples/OmniGen2-RL/OmniGen2/
 examples/OmniGen2-RL/pretrained_models/OmniGen2/transformer
+<<<<<<< HEAD
 examples/OmniGen2-RL/experiments
+=======
+examples/OmniGen2-RL/experiments
+examples/OmniGen2-RL/wandb/
+examples/OmniGen2-RL/wandb/run-20251120_224114-54s7pze7/*
+>>>>>>> 99e2f82 (11_19_train_RL)

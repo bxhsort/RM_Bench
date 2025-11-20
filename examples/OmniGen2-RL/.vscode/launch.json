@@ -1,21 +1,4 @@
 {
-<<<<<<< HEAD
-    // 使用 IntelliSense 了解相关属性。 
-    // 悬停以查看现有属性的描述。
-    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "启动程序",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${file}"
-        }
-    ]
-=======
   "version": "0.2.0",
   "configurations": [
     {
@@ -36,6 +19,7 @@
       "python": "/opt/conda/envs/editscore/bin/python",
       "console": "integratedTerminal",
       "env": {
+        "CUDA_VISIBLE_DEVICES": "1,2,3,4",
         "RANK": "0",
         "WORLD_SIZE": "1",
         "MASTER_ADDR": "127.0.0.1",
@@ -105,5 +89,4 @@
       ]
     }
   ]
->>>>>>> 99e2f82 (11_19_train_RL)
 }

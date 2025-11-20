@@ -564,7 +564,7 @@ def main(args):
 
     with torch.no_grad():
        
-        if args.train.rl.get('use_ori_neg_prompt_template', False):
+        if args.train.rl.get('use_ori_neg_prompt_template', False): # True
             negative_prompt = [
                 {
                     "role": "system",
@@ -577,7 +577,8 @@ def main(args):
             )
         else:
             negative_prompt = pipeline._apply_chat_template(args.train.rl.negative_prompt)
-
+        
+        # negative_prompt = '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|im_end|>\n'
         negative_prompt_embeds, negative_prompt_attention_mask = get_qwen2_prompt_embeds(
             text_encoder=text_encoder,
             tokenizer=text_tokenizer,
@@ -586,10 +587,10 @@ def main(args):
             max_sequence_length=1024,
         )
 
-        seq_len = negative_prompt_embeds.shape[1]
+        seq_len = negative_prompt_embeds.shape[1] # negative_prompt_embeds.shape = [1, 16, 2048]
 
-        negative_prompt_embeds = negative_prompt_embeds.repeat(1, args.train.rl.batch_size_per_forward, 1)
-        negative_prompt_embeds = negative_prompt_embeds.view(args.train.rl.batch_size_per_forward, seq_len, -1)
+        negative_prompt_embeds = negative_prompt_embeds.repeat(1, args.train.rl.batch_size_per_forward, 1) # 
+        negative_prompt_embeds = negative_prompt_embeds.view(args.train.rl.batch_size_per_forward, seq_len, -1) # [bs, bs_per_device,seq_len,dim]
         negative_prompt_attention_mask = negative_prompt_attention_mask.repeat(args.train.rl.batch_size_per_forward, 1)
         negative_prompt_attention_mask = negative_prompt_attention_mask.view(
             args.train.rl.batch_size_per_forward, -1
@@ -621,7 +622,7 @@ def main(args):
                         input_ids=text_input_ids[i*batch_size_per_forward:(i+1)*batch_size_per_forward],
                         attention_mask=text_mask[i*batch_size_per_forward:(i+1)*batch_size_per_forward],
                         output_hidden_states=False,
-                        ).last_hidden_state
+                        ).last_hidden_state # text_feats: [batch_size, seq_len, dim] = [1,34,2048]
                     
                     results = pipeline(
                         prompt_embeds=text_feats,
@@ -646,6 +647,9 @@ def main(args):
                     if i == 0:
                         total_text_feats = text_feats
                         total_results = results
+                        # results.__dict__['img_mask'].shape = [1,975]
+                        # results.__dict__['ref_latents'].shape = [1,975,64]
+                        # results.__dict__['ref_img_mask'].shape = [1,975]
                         for k in ['img_mask', 'ref_latents', 'ref_img_mask', 'middle_latents']:
                             total_results.__dict__[k] = [total_results.__dict__[k]]
                     else:
@@ -665,6 +669,7 @@ def main(args):
                 json_data['id'] = f"{global_step * args.train.global_batch_size + accelerator.process_index * args.train.batch_size + i}"
                 batch['meta_data'][i] = json.dumps(json_data)
             
+            # 进行数据的汇总将 多个设备上的数据用object_gather 汇总到主进程上
             local_batch_size = len(input_images_pil)
             gathered_input_images_pil = gather_object(input_images_pil)
             gathered_output_images = gather_object(total_results.images)
@@ -772,7 +777,7 @@ def main(args):
                             text_guidance_scale = args.train.rl.text_guidance_scale if args.train.rl.cfg_range_start <= i / args.train.rl.num_inference_step <= args.train.rl.cfg_range_end else 1.0
                             image_guidance_scale = args.train.rl.image_guidance_scale if args.train.rl.cfg_range_start <= i / args.train.rl.num_inference_step <= args.train.rl.cfg_range_end else 1.0
                             
-                            latents = results.middle_latents[i]
+                            latents = results.middle_latents[i] ## 为 RL 做准备，刚好对应采样的区间
                             latents_next = results.middle_latents[i+1]
                             t = timesteps[:, i]
                             t_next = timesteps[:, i+1]
