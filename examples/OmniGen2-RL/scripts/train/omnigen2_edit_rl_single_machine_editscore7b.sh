@@ -42,7 +42,7 @@ echo "WORLD_SIZE: $WORLD_SIZE"
 
 num_gpu_cards=$(nvidia-smi -L | wc -l)
 num_processes=$(($WORLD_SIZE * $num_gpu_cards))
-# num_processes=2
+num_processes=4
 
 echo "num_processes: $num_processes"
 echo $NCCL_DEBUG_FILE

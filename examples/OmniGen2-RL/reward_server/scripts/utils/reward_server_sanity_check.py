@@ -29,7 +29,7 @@ def main(args):
         os.path.dirname(__file__), os.path.pardir, os.path.pardir, os.path.pardir
     )
 
-    N = 48
+    N = 12
     K = 12
     images = [
         Image.open(os.path.join(root_dir, "../../example_images/output.png")).resize(

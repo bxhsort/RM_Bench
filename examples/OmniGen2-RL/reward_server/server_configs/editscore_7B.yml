@@ -1,9 +1,9 @@
 server:
   hosts:
   # Your machine IPs, here we use 4 machines for example
-    - 10.40.0.235
+    - 172.17.142.215
     
-  worker_base_port: 4795
+  worker_base_port: 18888
   proxy_port: 23456
 
 reward:

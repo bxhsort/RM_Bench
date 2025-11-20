@@ -42,8 +42,8 @@ transport:
   dynamic_time_shift: true
 
 train:
-  global_batch_size: 144
-  batch_size: 18
+  global_batch_size: 48 # 144
+  batch_size: 1 #18
   gradient_accumulation_steps: 1
 
   max_train_steps: 1000
@@ -84,10 +84,10 @@ train:
   lora_dropout: 0
 
   rl:
-    num_unique_prompts_per_sampling: 12
-    num_update_steps_per_sampling: 2
-    batch_size_per_forward: 9
-    num_images_per_prompt: 12
+    num_unique_prompts_per_sampling: 12 # 12
+    num_update_steps_per_sampling: 1 #2
+    batch_size_per_forward: 1 #9
+    num_images_per_prompt: 4 # 12
     sigma_coef: 0.7
     negative_prompt: ""
     num_inference_step: 20

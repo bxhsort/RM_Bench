@@ -117,7 +117,7 @@ class RewardClient:
 
 # Convenience function
 def evaluate_images(input_images: List[bytes], output_image: List[bytes], meta_datas: List[Dict[str, Any]], 
-                   proxy_host: str = "127.0.0.1", proxy_port: int = 23456,
+                   proxy_host: str = "172.17.142.215", proxy_port: int = 23456,
                    server_type: str = 'vlm') -> Optional[Tuple[List[float], List[float], List[str], List[Dict]]]:
     """
     Convenience function: directly evaluate images

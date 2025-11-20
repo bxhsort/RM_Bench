@@ -119,7 +119,7 @@ def main():
     signal.signal(signal.SIGTERM, signal_handler)
 
     # Detect available GPUs
-    num_available_gpus = 8
+    num_available_gpus = 4
     # import torch
     
     # if torch.cuda.is_available():

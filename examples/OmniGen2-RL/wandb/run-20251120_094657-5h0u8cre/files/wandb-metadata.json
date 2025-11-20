@@ -1,0 +1,93 @@
+{
+  "os": "Linux-5.15.0-72-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.12.12",
+  "startedAt": "2025-11-20T01:46:57.885892Z",
+  "args": [
+    "--config",
+    "options/omnigen2_edit_rl_single_machine_editscore7b.yml"
+  ],
+  "program": "/mnt/Reward/EditScore/examples/OmniGen2-RL/train.py",
+  "codePath": "examples/OmniGen2-RL/train.py",
+  "codePathLocal": "train.py",
+  "git": {
+    "remote": "https://github.com/bxhsort/RM_Bench.git",
+    "commit": "48c08bdb795931e8c9806e136e62c72b7c481acc"
+  },
+  "email": "1651830793@qq.com",
+  "root": "/mnt/Reward/EditScore/examples/OmniGen2-RL",
+  "host": "aibox-rec379f51bf7-5d8dbfd444-bvcdh",
+  "executable": "/opt/conda/envs/editscore/bin/python3.12",
+  "cpu_count": 64,
+  "cpu_count_logical": 128,
+  "gpu": "NVIDIA A800-SXM4-80GB",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "738675392512",
+      "used": "624545087488"
+    }
+  },
+  "memory": {
+    "total": "1079938785280"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-4bc925c1-f75a-441e-973b-cd56c220bb67"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-6de13dac-b862-4dcb-3c63-92b5b5763a87"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-f8f6d463-90a8-dcde-7b78-a566961f761b"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-89bd353e-9e04-c877-e787-393c1bb812a7"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-d174edab-c182-c091-511f-15da3c548ac3"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-3c1e7786-416b-de8e-5415-b3db5dd65c36"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-1fb197da-4200-1ee0-c6e0-f03a24b7a7bf"
+    },
+    {
+      "name": "NVIDIA A800-SXM4-80GB",
+      "memoryTotal": "85899345920",
+      "cudaCores": 6912,
+      "architecture": "Ampere",
+      "uuid": "GPU-c4417b2d-15c5-8883-4e5c-e9c66522a9b0"
+    }
+  ],
+  "cudaVersion": "12.6",
+  "writerId": "st8mqigdg5oo976wn9qlv5dtlz09a9zc"
+}

@@ -1,0 +1,102 @@
+_wandb:
+    value:
+        cli_version: 0.23.0
+        e:
+            ovbyu1as2r8awpbjj0wpk7v405a7lcx5:
+                args:
+                    - --config
+                    - options/omnigen2_edit_rl_single_machine_editscore7b.yml
+                codePath: examples/OmniGen2-RL/train.py
+                codePathLocal: train.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "12.6"
+                disk:
+                    /:
+                        total: "738675392512"
+                        used: "624538808320"
+                email: 1651830793@qq.com
+                executable: /opt/conda/envs/editscore/bin/python3.12
+                git:
+                    commit: 48c08bdb795931e8c9806e136e62c72b7c481acc
+                    remote: https://github.com/bxhsort/RM_Bench.git
+                gpu: NVIDIA A800-SXM4-80GB
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-4bc925c1-f75a-441e-973b-cd56c220bb67
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-6de13dac-b862-4dcb-3c63-92b5b5763a87
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-f8f6d463-90a8-dcde-7b78-a566961f761b
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-89bd353e-9e04-c877-e787-393c1bb812a7
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-d174edab-c182-c091-511f-15da3c548ac3
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-3c1e7786-416b-de8e-5415-b3db5dd65c36
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-1fb197da-4200-1ee0-c6e0-f03a24b7a7bf
+                    - architecture: Ampere
+                      cudaCores: 6912
+                      memoryTotal: "85899345920"
+                      name: NVIDIA A800-SXM4-80GB
+                      uuid: GPU-c4417b2d-15c5-8883-4e5c-e9c66522a9b0
+                host: aibox-rec379f51bf7-5d8dbfd444-bvcdh
+                memory:
+                    total: "1079938785280"
+                os: Linux-5.15.0-72-generic-x86_64-with-glibc2.35
+                program: /mnt/Reward/EditScore/examples/OmniGen2-RL/train.py
+                python: CPython 3.12.12
+                root: /mnt/Reward/EditScore/examples/OmniGen2-RL
+                startedAt: "2025-11-20T00:59:54.837924Z"
+                writerId: ovbyu1as2r8awpbjj0wpk7v405a7lcx5
+        m: []
+        python_version: 3.12.12
+        t:
+            "1":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 71
+                - 83
+                - 98
+            "2":
+                - 1
+                - 11
+                - 41
+                - 49
+                - 51
+                - 71
+                - 83
+                - 98
+            "3":
+                - 13
+            "4": 3.12.12
+            "5": 0.23.0
+            "6": 4.57.1
+            "12": 0.23.0
+            "13": linux-x86_64

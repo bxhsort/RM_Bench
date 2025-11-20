@@ -684,18 +684,20 @@ def main(args):
                 reasoning_to_scatter = [reasoning[i:i + local_batch_size] for i in range(0, len(reasoning), local_batch_size)]
                 meta_data_to_scatter = [meta_data[i:i + local_batch_size] for i in range(0, len(meta_data), local_batch_size)]
             else:
-                rewards_to_scatter = [None for _ in range(accelerator.num_processes)]
-                reasoning_to_scatter = [None for _ in range(accelerator.num_processes)]
-                meta_data_to_scatter = [None for _ in range(accelerator.num_processes)]
+                rewards_to_scatter = None #[None for _ in range(accelerator.num_processes)]
+                reasoning_to_scatter = None #[None for _ in range(accelerator.num_processes)]
+                meta_data_to_scatter = None #[None for _ in range(accelerator.num_processes)]
 
             accelerator.wait_for_everyone()
             # Extract the current process’s own rewards, reasoning, and meta_data.
             rewards = [None]
             reasoning = [None]
             meta_data = [None]
-            torch.distributed.scatter_object_list(rewards, rewards_to_scatter)
-            torch.distributed.scatter_object_list(reasoning, reasoning_to_scatter)
-            torch.distributed.scatter_object_list(meta_data, meta_data_to_scatter)
+            print("Scatter rewards...")
+            print(rewards_to_scatter)
+            torch.distributed.scatter_object_list(rewards, rewards_to_scatter, src=0)
+            torch.distributed.scatter_object_list(reasoning, reasoning_to_scatter, src=0)
+            torch.distributed.scatter_object_list(meta_data, meta_data_to_scatter, src=0)
             rewards = rewards[0]
             reasoning = reasoning[0]
             meta_data = meta_data[0]

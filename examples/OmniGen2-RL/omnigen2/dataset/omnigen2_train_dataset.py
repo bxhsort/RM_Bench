@@ -353,6 +353,8 @@ class RepeatedDistributedBatchSampler(torch.utils.data.Sampler):
         self.drop_last = drop_last
 
         self.samples_per_iter = self.num_replicas * batch_size
+        # print('self.samples_per_iter:', self.samples_per_iter,self.num_replicas, batch_size)
+        # print('self.num_repeats:', self.num_repeats)
         assert self.samples_per_iter % self.num_repeats == 0, f"k can not div n*b, k{num_repeats}-num_replicas{num_replicas}-batch_size{batch_size}"
         self.unique_samples_per_iter = self.samples_per_iter // self.num_repeats
 
