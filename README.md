@@ -211,6 +211,28 @@ If you find this repository or our work useful, please consider giving a star тн
   year={2025}
 }
 ```
-# RM_Bench
-# RM_Bench
-# RM_Bench
+## Download Weight
+```bash
+bash examples/OmniGen2-RL/download.sh
+```
+## Data Process
+```bash
+bash examples/OmniGen2-RL/scripts/data_process.sh
+```
+
+## run server
+modify gpu number(8---node1) in '/data/disk2/nas/RM/RM_Bench/examples/OmniGen2-RL/reward_server/start_multi_servers.py'
+```bash
+bash examples/OmniGen2-RL/reward_server/step1.sh
+bash examples/OmniGen2-RL/reward_server/step2.sh
+```
+
+## weight processor
+```bash
+python scripts/misc/extract_bin_from_pipe.py
+```
+## Train RL 
+another node(node2)
+```bash
+bash reward_server/start_multi_machines.sh --model_name=editscore_7B --config_path=reward_server/server_configs/editscore_7B.yml
+```

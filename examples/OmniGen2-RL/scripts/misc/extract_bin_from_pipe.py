@@ -13,7 +13,7 @@ from omnigen2.models.transformers.transformer_omnigen2 import OmniGen2Transforme
 
 
 def main():
-    transformer = OmniGen2Transformer2DModel.from_pretrained("/mnt/Reward/EditScore/examples/OmniGen2-RL/OmniGen2/models--OmniGen2--OmniGen2/snapshots/df5dca8a981d74e6c3af214c145f5c735fe72367", subfolder="transformer")
+    transformer = OmniGen2Transformer2DModel.from_pretrained("/home/nas/data/RM_Bench/ckpts/OmniGen2", subfolder="transformer")
 
     state_dict = transformer.state_dict()
 
