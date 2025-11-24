@@ -7,7 +7,7 @@ cd $SHELL_FOLDER
 # conda activate editscore
 
 machine_id=0
-config_path=/mnt/Reward/EditScore/examples/OmniGen2-RL/reward_server/server_configs/editscore_7B.yml
+config_path=/home/nas/data/RM/RM_Bench/examples/OmniGen2-RL/reward_server/server_configs/editscore_7B.yml
 model_name=editscore_7B
 
 while [[ $# -gt 0 ]]; do
